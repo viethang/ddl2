@@ -1,0 +1,13 @@
+sudo: required
+
+language: bash
+
+services:
+  - docker
+
+before_install:
+  - make build_ui
+  - make run_ui
+
+script:
+  - make test_ui
