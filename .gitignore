@@ -1,1 +1,6 @@
 .idea/
+.venv/
+*.pyc
+*db.sqlite3
+*.iml
+**/migrations/*_initial.py
