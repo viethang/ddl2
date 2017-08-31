@@ -4,7 +4,7 @@ build_ui:
 
 .PHONY: run_ui
 run_ui:
-	docker run --name ddl2-ui --detach --publish 5050:80 ddl2-ui
+	docker run --rm --name ddl2-ui --detach --publish 5050:80 ddl2-ui
 	docker ps -a
 
 .PHONY: test_ui
@@ -16,6 +16,10 @@ test_ui:
 	.venv/bin/pip install -r api/requirements.txt
 	touch $@
 
+build_api:
+	docker build --tag ddl2-api api
+
 .PHONY: run_api
 run_api:
-	.venv/bin/python api/manage.py runserver
+	docker run --rm --name ddl2-api --publish 8000:8000 ddl2-api
+	docker ps -a
