@@ -23,3 +23,6 @@ build_api:
 run_api:
 	docker run --rm --name ddl2-api --publish 8000:8000 ddl2-api
 	docker ps -a
+
+run_dev_api: .venv/timestamp
+	.venv/bin/python api/manage.py runserver
