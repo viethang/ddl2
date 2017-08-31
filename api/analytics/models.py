@@ -14,4 +14,4 @@ class Result(models.Model):
     student = models.OneToOneField(Student)
 
     def __str__(self):
-        return self.student.firstname + ' ' + self.student.lastname + ' -- ' + self.gpa
+        return self.student.firstname + ' ' + self.student.lastname + ' -- ' + str(self.gpa)
